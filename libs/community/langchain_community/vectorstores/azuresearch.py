@@ -184,7 +184,9 @@ def _get_search_client(
                 ),
             )
             semantic_search = SemanticSearch(configurations=[semantic_configuration])
-
+        elif semantic_configurations is not None:
+            semantic_search = SemanticSearch(configurations=semantic_configurations)
+        
         # Create the search index with the semantic settings and vector search
         index = SearchIndex(
             name=index_name,
